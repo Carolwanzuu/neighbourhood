@@ -1,0 +1,29 @@
+/*h2 {
+    font-size :x-large;
+    color :chartreuse;
+    text-align :center;
+}*/
+.tropical h2 {
+    color : #f7325e;
+    font-family: fantasy;
+    text-align: center;
+
+}
+.tropical p {
+    color : #7dc410;
+    font-family: fantasy;
+}
+.image1 {
+    width : 33%;
+}
+.popular {
+    color :cyan;
+    font-family: serif;
+}
+.popular h2 {
+    color:darkorchid;
+    text-align : center;
+}
+.image2 {
+    width : 24%;
+}
