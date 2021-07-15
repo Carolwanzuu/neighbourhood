@@ -1,0 +1,147 @@
+.head {
+    background: url("./images/backgrounds/h_img.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 1000px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+    color: white;
+    opacity: 1.9;
+}
+ h3 {
+    text-align: center;
+    font-weight: 800;
+}
+.about{
+    margin: 10%;
+    text-align: center;
+}
+.what h3 {
+    text-align: center;
+    font-weight: 700;
+    padding: 5%;
+}
+.what{
+    margin-left: 10%;
+}
+.portfolio {
+    padding: 2%;
+}
+.portfolio img .one{
+    float: left;
+}
+.portfolio img {
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 30%;
+} 
+.portfolio img .two{
+    float: left;
+    width: 25%;
+}
+.three{
+    float: left;
+    width: 20%;
+}
+.five{
+    width: 20%;
+}
+.services {
+    background: url("./images/backgrounds/s_image.jpg");
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+    color: white;
+
+}
+
+footer{
+    background: url("./images/backgrounds/c_image.jpg");
+    height: 80vh;
+    width: 100%;
+    padding-top: 1%;
+}
+#email {
+    margin-left: 20%;
+}
+form{
+    margin: 5%;
+}
+.social{
+    margin-left: 30%;
+}
+.imgport{
+    width: 250px;
+    margin: 5%;
+    
+}
+.year{
+    margin-left: 53%;
+}
+ .design1 {
+    display: none;
+} 
+/* .box {
+    bottom: 20px;
+    right: 20px;
+    color: white; 
+    padding-left: 2px;
+    padding-right: 2px;
+    border: 2px solid red;
+} */
+.text{
+    color: white;
+    border: 2px solid white;
+    padding: 5px 5px;
+}
+
+.port {
+    margin: auto;
+    padding: 2%;
+    margin-left: 5%;
+    margin-right: 20%;
+}
+.one{
+    margin-left: 50%;
+}
+.devop1{
+    display: none;
+}
+.product1 {
+    display: none;
+}
+.what{
+    margin-left: 10%;
+}
+.imgport:hover{
+    background-color: white;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .text{
+      color: white;
+      border: 2px solid white;
+      padding: 20px 20px;
+  }
+/* 
+h2 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 20%;
+}
+
+.contact {
+    height: 5%;
+}  */
