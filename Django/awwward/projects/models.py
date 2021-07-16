@@ -8,5 +8,14 @@ class Profile(models.Model):
     bio=models.TextField(max_length=255, default='My Bio',blank=True)
     name=models.CharField(max_length=50,blank=True)
 
+class Projects(models.Model):
+    title = models.CharField(max_length=30)
+    description = models.TextField()
+    project_photo = models.ImageField(manual_crop='1280x720')
+    projecturl= models.URLField(max_length=200)
+    technologies=models.CharField(max_length=255, blank=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='', null=True ,related_name='author')
+    datecreated= models.DateField(auto_now_add=True )
+
 
 
