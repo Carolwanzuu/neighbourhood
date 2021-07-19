@@ -1,14 +1,14 @@
 from django.conf import settings
 from django.conf.urls.static import static
-
-from django.urls import path, include
-from . import views
 from django.contrib.auth import views as auth_views
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
     path('',views.welcome,name = 'welcome'),
     path('register/',views.register, name='registration'),
-     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('profile/',views.Profile,name = 'profile'),
     path('editprofile/',views.edit_Profile,name = 'editprofile'),
     path('searchPro/', views.searchprofile, name='search'),

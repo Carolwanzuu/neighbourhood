@@ -1,7 +1,7 @@
 from projects.forms import *
 from .models import Projects
 from django.shortcuts import redirect, render
-from .email import send_welcome_email
+# from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
