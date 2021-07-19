@@ -11,7 +11,7 @@ def register(request):
     return render(request, 'users/register.html')
 
 def Profiles(request):
-    prof = Profiles.objects.get(user = id)
+    prof = Profile.objects.get(user = id)
     return render(request, 'profile.html')
 
 def edit_Profile(request):
@@ -34,8 +34,8 @@ def edit_Profile(request):
     
 
 def project(request):
-    
-    return render(render,'project.html')
+    proj = Projects.objects.get(id=id)
+    return render(render,'project.html',{'project':proj})
 
 def search_project(request):
     return render(request, 'results.html')
