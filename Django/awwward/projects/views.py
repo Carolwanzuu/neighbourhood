@@ -1,5 +1,6 @@
+from projects.forms import UpdateProfileForm, UserUpdateForm
 from .models import Projects
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 def welcome(request):
@@ -15,21 +16,21 @@ def Profile(request):
 def edit_Profile(request):
     user= request.user
     if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        if user_form.is_valid() and prof_form.is_valid():
-            user_form.save()
-            prof_form.save()
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
             return redirect('profile', user.id)
     else:
-        user_form = UserUpdateForm(instance=request.user)
-        prof_form = UpdateUserProfileForm(instance=request.user.profile)
-    params = {
-        'user_form': user_form,
-        'prof_form': prof_form
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = UpdateProfileForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
     }
-    return render(request, 'editprofile.html', params)
-    return render(request,'editProfile.html')
+    return render(request, 'editProfile.html', context)
+    
 
 def project(request):
     return render(render,'project.html')

@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('',views.welcome,name = 'welcome'),
     path('profile/',views.Profile,name = 'profile'),
+    path('editprofile/',views.edit_Profile,name = 'editprofile'),
     
 ]
 if settings.DEBUG:
