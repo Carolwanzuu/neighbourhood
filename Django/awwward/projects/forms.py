@@ -8,14 +8,14 @@ from .models import Profile, Projects,Review,RATE_CHOICES
 class profileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [ 'profilePic', 'Bio']
+        fields = [ 'profilePic', 'bio']
 
 class projectForm(forms.ModelForm):
     photo = ImageField()
     
     class Meta:
         model = Projects
-        fields = ['projectPhoto', 'title', 'projectUrl', 'description', 'technologies']
+        fields = ['photo', 'title', 'projectUrl', 'description', 'technologies']
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -26,5 +26,5 @@ class UserUpdateForm(forms.ModelForm):
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['Bio', 'photo']
+        fields = ['bio', 'profilePic', 'contact']
     

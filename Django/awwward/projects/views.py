@@ -1,4 +1,4 @@
-from projects.forms import UpdateProfileForm, UserUpdateForm
+from projects.forms import *
 from .models import Projects
 from django.shortcuts import redirect, render
 
@@ -10,7 +10,8 @@ def welcome(request):
 def register(request):
     return render(request, 'users/register.html')
 
-def Profile(request):
+def Profiles(request):
+    prof = Profiles.objects.get(user = id)
     return render(request, 'profile.html')
 
 def edit_Profile(request):
@@ -24,7 +25,7 @@ def edit_Profile(request):
             return redirect('profile', user.id)
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = UpdateProfileForm(instance=request.user.profile)
+        p_form = UpdateProfileForm()
     context = {
         'u_form': u_form,
         'p_form': p_form
@@ -33,6 +34,7 @@ def edit_Profile(request):
     
 
 def project(request):
+    
     return render(render,'project.html')
 
 def search_project(request):
