@@ -1,5 +1,36 @@
-{%extends 'base.html'%}
 
-{% block content %}
-{{block.super}}
-{% endblock %}
+<div class="" style="font-family: 'Jost', sans-serif;">
+    {%extends 'base.html'%}
+    {%block content%}
+    <div class="container-fluid">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="display-4">Awwards</h2>
+                <p class="lead">Check out other peoples projects, Review and Rate them! You can also post yours to be reviewed!
+                </p>
+            </div>
+        </div>
+        <h2>Sample Projects</h2>
+        <div class="row">
+            {%for project in projects%}
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="view view-cascade overlay">
+                        <img src="{{project.photo.url}}" class="img-fluid" alt="">
+                        <a href="projects/{{project.id}}">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="">{{proj.title}}</h5>
+                        <a href="projects/{{project.id}}">Readmore</a>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+    {%endblock%}
+</div>

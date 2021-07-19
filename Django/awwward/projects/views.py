@@ -1,8 +1,10 @@
+from .models import Projects
 from django.shortcuts import render
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'index.html')
+    projects = Projects.objects.all()
+    return render(request, 'index.html',)
 
 def register(request):
     return render(request, 'users/register.html')
