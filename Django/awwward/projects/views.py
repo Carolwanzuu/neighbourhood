@@ -31,6 +31,20 @@ def edit_Profile(request):
         'p_form': p_form
     }
     return render(request, 'editProfile.html', context)
+
+def searchprofile(request):
+    if 'searchUser' in request.GET and request.GET['searchUser']:
+        name = request.GET.get("searchUser")
+        searchResults = Projects.search_projects(name)
+        message = f'name'
+        params = {
+            'results': searchResults,
+            'message': message
+        }
+        return render(request, 'search.html', params)
+    else:
+        message = "You haven't searched for any profile"
+    return render(request, 'search.html', {'message': message})
     
 
 def project(request):
@@ -54,7 +68,7 @@ def newProject(request):
 def search_project(request):
     if request.method == 'GET':
         title = request.GET.get("title")
-        results = Projects.objects.filter(title__icontains=title).all()
+        results = Projects.objects.filter(title=title).all()
         print(results)
         message = f'name'
         params = {

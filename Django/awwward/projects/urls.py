@@ -8,8 +8,10 @@ urlpatterns = [
     path('',views.welcome,name = 'welcome'),
     path('profile/',views.Profile,name = 'profile'),
     path('editprofile/',views.edit_Profile,name = 'editprofile'),
+    path('searchPro/', views.searchprofile, name='search'),
     path('projects/',views.project,name = 'projects'),
     path('newproject/',views.newProject,name = 'newProject'),
+    path('search/', views.search_project, name='search'),
     # path('rate/<id>/',views.rate,name = 'rate')
     
 ]
