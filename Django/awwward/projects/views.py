@@ -1,6 +1,7 @@
 from projects.forms import *
 from .models import Projects
 from django.shortcuts import redirect, render
+from .email import send_welcome_email
 
 # Create your views here.
 def welcome(request):
@@ -97,3 +98,16 @@ def rate(request,id):
         form = RatingForm()
     return render(request,"rates.html",{"form":form,"project":project})        
 
+def news_user(request):
+    if request.method == 'POST':
+        form = profileForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+
+            recipient = profileForm(name = name,email =email)
+            recipient.save()
+            send_welcome_email(name,email)
+
+            
+    return render(request, 'index.html')
