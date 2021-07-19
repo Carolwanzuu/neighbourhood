@@ -32,7 +32,7 @@ def register(request):
     return render(request, 'registration/register.html', params)
 
 def Profiles(request):
-    prof = Profile.objects.get(user = id)
+    prof = Profile.objects.all()
     return render(request, 'profile.html')
 
 def edit_Profile(request):

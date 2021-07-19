@@ -13,18 +13,18 @@
         </div>
         <h2>Sample Projects</h2>
         <div class="row">
-            {%for project in projects%}
+            {%for project in Projects%}
             <div class="col-md-3">
                 <div class="card">
                     <div class="view view-cascade overlay">
                         <img src="{{project.photo.url}}" class="img-fluid" alt="">
-                        <a href="projects/{{project.id}}">
+                        <a href="Projects/{{project.id}}">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="">{{proj.title}}</h5>
-                        <a href="projects/{{project.id}}">Readmore</a>
+                        <h5 class="">{{project.title}}</h5>
+                        <a href="Projects/{{project.id}}">Readmore</a>
                     </div>
                 </div>
             </div>
