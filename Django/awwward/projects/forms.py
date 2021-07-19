@@ -28,10 +28,22 @@ class UpdateProfileForm(forms.ModelForm):
         model = Profile
         fields = ['bio', 'profilePic', 'contact']
 
-class RatingForm(forms.ModelForm):
-    # text = forms.CharField(widget=forms.Textarea())
-    # rate = forms.ChoiceField(choices=RATE_CHOICES,widget=forms.Select(),required=True)
+class RegistrationForm(UserCreationForm):
+    email=forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'email','password1', 'password2']
 
+    def save(self, commit=True):
+        user=super().save(commit=False)
+        user.email=self.cleaned_data['email']
+        if commit:
+
+            user.save()
+        return user
+
+class RatingForm(forms.ModelForm):
+   
     class Meta:
         model = Review
         fields = ['text','design','usability','content']
