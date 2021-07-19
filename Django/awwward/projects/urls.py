@@ -12,7 +12,7 @@ urlpatterns = [
     path('projects/',views.project,name = 'projects'),
     path('newproject/',views.newProject,name = 'newProject'),
     path('search/', views.search_project, name='search'),
-    # path('rate/<id>/',views.rate,name = 'rate')
+    path('rate/<id>/',views.rate,name = 'rate')
     
 ]
 if settings.DEBUG:

@@ -27,4 +27,12 @@ class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio', 'profilePic', 'contact']
+
+class RatingForm(forms.ModelForm):
+    # text = forms.CharField(widget=forms.Textarea())
+    # rate = forms.ChoiceField(choices=RATE_CHOICES,widget=forms.Select(),required=True)
+
+    class Meta:
+        model = Review
+        fields = ['text','design','usability','content']
     

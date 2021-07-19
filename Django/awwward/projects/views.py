@@ -80,3 +80,20 @@ def search_project(request):
         message = "You haven't searched for any image category"
     return render(request, 'results.html')
 
+def rate(request,id):
+    # reviews = Revieww.objects.get(projects_id = id).all()
+    # print
+    project = Projects.objects.get(id = id)
+    user = request.user
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.user = user
+            rate.projects = project
+            rate.save()
+            return redirect('home')
+    else:
+        form = RatingForm()
+    return render(request,"rates.html",{"form":form,"project":project})        
+
