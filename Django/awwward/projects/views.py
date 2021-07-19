@@ -2,6 +2,7 @@ from projects.forms import *
 from .models import Projects
 from django.shortcuts import redirect, render
 from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def welcome(request):
@@ -9,7 +10,26 @@ def welcome(request):
     return render(request, 'index.html',)
 
 def register(request):
-    return render(request, 'users/register.html')
+    if request.method=="POST":
+        form=RegistrationForm(request.POST)
+        procForm=profileForm(request.POST, request.FILES)
+        if form.is_valid() and procForm.is_valid():
+            username=form.cleaned_data.get('username')
+            user=form.save()
+            profile=procForm.save(commit=False)
+            profile.user=user
+            profile.save()
+
+            # messages.success(request, f'Successfully created Account!.You can now login as {username}!')
+        return redirect('login')
+    else:
+        form= RegistrationForm()
+        prof=profileForm()
+    params={
+        'form':form,
+        'profForm': prof
+    }
+    return render(request, 'registration/register.html', params)
 
 def Profiles(request):
     prof = Profile.objects.get(user = id)
@@ -52,6 +72,7 @@ def project(request):
     proj = Projects.objects.all
     return render(render,'project.html')
 
+@login_required(login_url='login')   
 def newProject(request):
     current_user = request.user
     user_profile = Profile.objects.get(user = current_user)
@@ -81,6 +102,7 @@ def search_project(request):
         message = "You haven't searched for any image category"
     return render(request, 'results.html')
 
+@login_required(login_url='login')   
 def rate(request,id):
     # reviews = Revieww.objects.get(projects_id = id).all()
     # print
