@@ -34,8 +34,22 @@ def edit_Profile(request):
     
 
 def project(request):
-    proj = Projects.objects.get(id=id)
-    return render(render,'project.html',{'project':proj})
+    proj = Projects.objects.all
+    return render(render,'project.html')
+
+def newProject(request):
+    current_user = request.user
+    user_profile = Profile.objects.get(user = current_user)
+    if request.method == 'POST':
+        form = projectForm(request.POST,request.FILES)
+        if form.is_valid:
+            newProj = form.save(commit = False)
+            newProj.user = user_profile
+            newProj.save()
+        return redirect('home')  
+    else:
+        form = projectForm()
+    return render(request,'newProj.html',{'form':form})    
 
 def search_project(request):
     return render(request, 'results.html')

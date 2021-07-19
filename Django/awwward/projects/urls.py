@@ -8,8 +8,9 @@ urlpatterns = [
     path('',views.welcome,name = 'welcome'),
     path('profile/',views.Profile,name = 'profile'),
     path('editprofile/',views.edit_Profile,name = 'editprofile'),
-    path('projects/<id>/',views.project,name = 'projects'),
-    path('rate/<id>/',views.rate,name = 'rate')
+    path('projects/',views.project,name = 'projects'),
+    path('newproject/',views.newProject,name = 'newProject'),
+    # path('rate/<id>/',views.rate,name = 'rate')
     
 ]
 if settings.DEBUG:
