@@ -1,4 +1,3 @@
-
 <div class="" style="font-family: 'Jost', sans-serif;">
     {%extends 'base.html'%}
     {%block content%}
@@ -11,20 +10,20 @@
                 </p>
             </div>
         </div>
-        <h2>Sample Projects</h2>
+        <h3>Sample Projects</h3>
         <div class="row">
-            {%for project in Projects%}
+            {%for project in project_item %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="view view-cascade overlay">
-                        <img src="{{project.photo.url}}" class="img-fluid" alt="">
-                        <a href="Projects/{{project.id}}">
+                        <img src="{{project.photo}}" class="card-img-top" alt="">
+                        <a href="{{project.title}}">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="">{{project.title}}</h5>
-                        <a href="Projects/{{project.id}}">Readmore</a>
+                        <h5 class="card-title">{{project.title}}</h5>
+                        <a href="#">Readmore</a>
                     </div>
                 </div>
             </div>

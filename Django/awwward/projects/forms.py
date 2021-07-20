@@ -2,12 +2,12 @@ from django import forms
 from django.forms.fields import ImageField
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Projects,Review,RATE_CHOICES
+from .models import Profiles, Projects,Review,RATE_CHOICES
 
 
 class profileForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Profiles
         fields = [ 'profilePic', 'bio']
 
 class projectForm(forms.ModelForm):
@@ -25,7 +25,7 @@ class UserUpdateForm(forms.ModelForm):
 
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Profiles
         fields = ['bio', 'profilePic', 'contact']
 
 class RegistrationForm(UserCreationForm):

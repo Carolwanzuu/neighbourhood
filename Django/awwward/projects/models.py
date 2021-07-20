@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from pyuploadcare.dj.models import ImageField
 
 # Create your models here.
-class Profile(models.Model):
+class Profiles(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    profilePic=models.ImageField(blank=True, default='default.jpg')
+    profilePic=models.ImageField(blank=True,null=True,upload_to = 'images/', default='default.png')
     bio=models.TextField(max_length=255, default='My Bio',blank=True)
     name=models.CharField(max_length=50,blank=True)
     contact=models.EmailField(max_length=100, blank=True)
@@ -12,10 +13,10 @@ class Profile(models.Model):
 class Projects(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(blank=True, null = True, upload_to = 'images/', default='images/default.png')
     projectUrl= models.URLField(max_length=200)
     technologies=models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='', null=True ,related_name='author')
+    user = models.ForeignKey(Profiles, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     datecreated= models.DateField(auto_now_add=True )
 
 RATE_CHOICES = [

@@ -1,13 +1,14 @@
 from projects.forms import *
-from .models import Projects
+from .models import *
 from django.shortcuts import redirect, render
 # from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
 def welcome(request):
-    projects = Projects.objects.all()
-    return render(request, 'index.html',)
+    project_item = Projects.objects.all()
+    return render(request, 'index.html',{'project_item':project_item})
 
 def register(request):
     if request.method=="POST":
@@ -31,8 +32,8 @@ def register(request):
     }
     return render(request, 'registration/register.html', params)
 
-def Profiles(request):
-    prof = Profile.objects.all()
+def Profile(request):
+    #prof = Profiles.objects.all()
     return render(request, 'profile.html')
 
 def edit_Profile(request):

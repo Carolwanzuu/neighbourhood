@@ -1,5 +1,5 @@
 <div class="class" style="font-family: 'Jost', sans-serif;">
-    {%include 'base.html'%}
+    {%extends 'base.html'%}
     {%block content%}
     <div class="col-sm-6 m-auto " style="font-family: 'Jost', sans-serif;">
         <div class=" content-section container" style="padding-top: 100px;">
@@ -12,7 +12,7 @@
                 <div class="media-body">
                     <h2 class="account-heading">{{user.username}}</h2>
                     <p class="text-secondary">{{user.email}}</p>
-                    <p>{{profile.bio}}</p>
+                    <p>{{profiles.bio}}</p>
                     <hr>
 
                     <a href="{% url 'profile' %}">
