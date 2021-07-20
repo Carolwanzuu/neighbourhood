@@ -76,7 +76,7 @@ def project(request):
 @login_required(login_url='login')   
 def newProject(request):
     current_user = request.user
-    user_profile = Profile.objects.get(user = current_user)
+    user_profile = Profiles.objects.get(user = current_user)
     if request.method == 'POST':
         form = projectForm(request.POST,request.FILES)
         if form.is_valid:
