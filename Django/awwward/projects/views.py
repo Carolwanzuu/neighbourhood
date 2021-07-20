@@ -7,8 +7,8 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def welcome(request):
-    project_item = Projects.objects.all()
-    return render(request, 'index.html',{'project_item':project_item})
+    project_items = Projects.objects.all()
+    return render(request, 'index.html',{'project_items':project_items})
 
 def register(request):
     if request.method=="POST":
@@ -91,22 +91,20 @@ def newProject(request):
 def search_project(request):
     if request.method == 'GET':
         title = request.GET.get("title")
-        results = Projects.objects.filter(title=title).all()
-        print(results)
-        message = f'name'
-        params = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', params)
+        if title != '' and title is not None:
+            results = Projects.objects.filter(title__icontains=title).all()
+            message = f'name'
+            params = {
+                'results': results,
+                'message': message
+                }
+            return render(request, 'results.html', params)
     else:
         message = "You haven't searched for any image category"
     return render(request, 'results.html')
 
 @login_required(login_url='login')   
 def rate(request,id):
-    # reviews = Revieww.objects.get(projects_id = id).all()
-    # print
     project = Projects.objects.get(id = id)
     user = request.user
     if request.method == 'POST':
