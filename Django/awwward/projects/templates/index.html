@@ -6,28 +6,35 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h2 class="display-4">Awwards</h2>
-                <p class="lead">Check out other peoples projects, Review and Rate them! You can also post yours to be reviewed!
+                <p class="lead">Check out other peoples projects, Review and Rate them! You can also post yours to be
+                    reviewed!
                 </p>
             </div>
         </div>
-        <h3>Sample Projects</h3>
+        <h1 class="text-center mb-5">Sample Projects</h1>
         <div class="row">
-            {%for project in project_item %}
+            {% for project in project_item %}
             <div class="col-md-3">
                 <div class="card">
-                    <div class="view view-cascade overlay">
-                        <img src="{{project.photo}}" class="card-img-top" alt="">
-                        <a href="{{project.title}}">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
+                    <img class="img-fluid" src="{{project.photo.url}}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">{{project.title}}</h5>
-                        <a href="#">Readmore</a>
+                        <div class="card-title">
+                            <h2>
+                                {{project.title}}</h2>
+                        </div>
+                        <div class="card-text">
+                            {{project.description}}
+                        </div>
+
                     </div>
                 </div>
             </div>
             {%endfor%}
+
+        </div>
+        <!-- <a type="button" class="btn btn-primary">Add Project</a> -->
+        <div class="page-item">
+            <a class="page-link" href="{% url 'registration' %}">Add Project</a>
         </div>
     </div>
 
