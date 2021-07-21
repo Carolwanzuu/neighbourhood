@@ -17,7 +17,7 @@ urlpatterns = [
     path('newproject/',views.newProject,name = 'newProject'),
     path('search/', views.search_project, name='search'),
     path('rate/<id>/',views.rate,name = 'rate'),
-    path('^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
     
 ]
 if settings.DEBUG:
