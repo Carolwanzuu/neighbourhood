@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm">
                 <div class="view view-cascade overlay">
-                    <img class="img-fluid" src="{{Projects.photo.url}}" alt="Card image cap">
+                    <img class="img-fluid" src="{{project.photo.url}}" alt="Card image cap">
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -17,16 +17,16 @@
                 <div class="card-body card-body-cascade text-center">
 
                     <!-- Title -->
-                    <h4 class="card-title"><strong>{{Projects.title}}</strong></h4>
+                    <h4 class="card-title"><strong>{{project.title}}</strong></h4>
                     <!-- Subtitle -->
                     <h6 class="font-weight-bold indigo-text py-2">Description</h6>
                     <!-- Text -->
-                    <p class="card-text">{{Projects.description}}
+                    <p class="card-text">{{project.description}}
                     </p>
-                    <a href="{{Projects.projectUrl}}">
+                    <a href="{{project.projectUrl}}">
                         <button class="btn btn-primary">Check out</button>
                     </a>
-                    <h5 style="padding-left: 120%;" class="text-secondary">By: {{Projects.user}}</h5>
+                    <h5 style="padding-left: 120%;" class="text-secondary">By: {{project.user}}</h5>
                 </div>
             </div>
         </div>

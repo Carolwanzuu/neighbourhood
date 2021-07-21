@@ -69,9 +69,9 @@ def searchprofile(request):
     return render(request, 'search.html', {'message': message})
     
 
-def project(request):
-    proj = Projects.objects.all
-    return render(render,'project.html')
+def project(request, id):
+    proj = Projects.objects.get(id=id)
+    return render(request,'project.html',{'projects':proj})
 
 @login_required(login_url='login')   
 def newProject(request):

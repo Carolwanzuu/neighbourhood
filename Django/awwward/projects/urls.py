@@ -13,7 +13,7 @@ urlpatterns = [
     path('editprofile/',views.edit_Profile,name = 'editprofile'),
     path('searchPro/', views.searchprofile, name='search'),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
-    path('projects/',views.project,name = 'projects'),
+    path('project/<int:id>',views.project,name = 'project'),
     path('newproject/',views.newProject,name = 'newProject'),
     path('search/', views.search_project, name='search'),
     path('rate/<id>/',views.rate,name = 'rate')
