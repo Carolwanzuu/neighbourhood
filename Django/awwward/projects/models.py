@@ -49,6 +49,10 @@ class Review(models.Model):
 
 # Foo.objects.filter(ratings__isnull=False).order_by('ratings__average')
     
-
+class MoringaMerch(models.Model):
+    name = models.CharField(max_length=40)
+    bio = models.TextField()
+    projects = models.DecimalField(decimal_places=2, max_digits=20)
+    pic = models.ImageField()
 
 
