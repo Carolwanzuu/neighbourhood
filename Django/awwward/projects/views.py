@@ -7,8 +7,8 @@ from django.http import JsonResponse
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import  MoringaMerch
-from .serializer import MerchSerializer
+
+from .serializer import ProfileSerializer, ProjectSerializer
 
 # Create your views here.
 
