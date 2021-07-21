@@ -1,6 +1,6 @@
 <div class="class" style="font-family: 'Jost', sans-serif;">
     {% extends 'base.html'%}
-    
+    {% load ratings %}
     {%block content%}
     <div class="container mt-5">
         <div class="row">
@@ -35,12 +35,11 @@
             <div class="row">
                 <div class="col-sm">
                     <h4>Usability</h4>
-                   
-                    <h4>Usability</h4>
+
                 </div>
                 <div class="col-sm">
                     <h4>Design</h4>
-                    
+                    {% ratings projects %}
                 </div>
                 <div class="col-sm">
                     <h4>Content</h4>

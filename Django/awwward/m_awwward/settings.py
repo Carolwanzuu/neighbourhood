@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'crispy_forms',
     'pyuploadcare.dj',
+    'star_ratings',
 ]
 
 UPLOADCARE = {
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'django.core.context_processors.request',
             ],
         },
     },
