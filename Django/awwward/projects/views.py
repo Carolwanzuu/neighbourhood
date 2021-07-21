@@ -140,8 +140,14 @@ def news_user(request):
     return render(request, 'index.html')
 
 #........
-class MerchList(APIView):
-    def get(self, request, format=None):
-        all_merch = MoringaMerch.objects.all()
-        serializers = MerchSerializer(all_merch, many=True)
-        return Response(serializers.data)
+class ProfileList(APIView):
+    def get(self,request,format = None):
+        all_profile = Profile.objects.all()
+        serializerdata = ProfileSerializer(all_profile,many = True)
+        return Response(serializerdata.data)
+
+class ProjectList(APIView):
+    def get(self,request,format = None):
+        all_projects = Projects.objects.all()
+        serializerdata = ProjectSerializer(all_projects,many = True)
+        return Response(serializerdata.data)

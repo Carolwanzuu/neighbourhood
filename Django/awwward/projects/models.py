@@ -12,6 +12,19 @@ class Profiles(models.Model):
     name=models.CharField(max_length=50,blank=True)
     contact=models.EmailField(max_length=100, blank=True)
 
+    def __str__(self):
+        return self.user.username
+ 
+    def save_profile(self):
+        self.user
+
+    def delete_profile(self):
+        self.delete()    
+
+    @classmethod
+    def search_profile(cls, name):
+        return cls.objects.filter(user__username__icontains=name).all()
+
 class Projects(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
@@ -20,6 +33,17 @@ class Projects(models.Model):
     technologies=models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(Profiles, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     datecreated= models.DateField(auto_now_add=True )
+
+    def save_projects(self):
+        self.user
+
+    def delete_projects(self):
+        self.delete()    
+
+
+    @classmethod
+    def search_projects(cls, name):
+        return cls.objects.filter(title__icontains=name).all()
 
 RATE_CHOICES = [
 (1,'1- Trash'),
@@ -43,16 +67,15 @@ class Review(models.Model):
     usability = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
     content = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
 
+    def __str__(self):
+        return self.user.username
+
 # class Foo(models.Model):
 #     bar = models.CharField(max_length=100)
 #     ratings = GenericRelation(Rating, related_query_name='foos')
 
 # Foo.objects.filter(ratings__isnull=False).order_by('ratings__average')
     
-class MoringaMerch(models.Model):
-    name = models.CharField(max_length=40)
-    bio = models.TextField()
-    projects = models.DecimalField(decimal_places=2, max_digits=20)
-    pic = models.ImageField()
+
 
 
