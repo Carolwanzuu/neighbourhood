@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'pyuploadcare.dj',
     'star_ratings',
+    'tinymce',
 ]
 
 UPLOADCARE = {
