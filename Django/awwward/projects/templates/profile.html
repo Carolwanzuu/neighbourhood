@@ -5,25 +5,32 @@
         <div class=" content-section container" style="padding-top: 100px;">
             <div class="media">
                 <div class="col-sm-4">
-                    <div style="width: 150px; height:150px; overflow:hidden; border-radius:50%" class="img-wrapper">
-                        <img width="120%" height="120%" src="{{profiles.profilePic.url}}" alt="profile">
+                    <div class="card">
+                        <img class="img-fluid" width="120%" height="120%" src="{{profiles.profilePic.url}}">
+                        <div class="card-body">
+                            <div class="card-title">
+                                {{profiles.bio}}
+                            </div>
+                            <div class="card-text">
+                                {{profiles.user}}
+                                <hr>
+                                {{profiles.contact}}
+                            </div>
+                            <div class="media-body">
+                                <h2 class="account-heading">{{user.username}}</h2>
+                                <p class="text-secondary">{{user.email}}</p>
+                                <p>{{profiles.bio}}</p>
+                                <hr>
+
+                                <a href="{% url 'editprofile' %}">
+                                    <button class="btn btn-primary">Edit Profile</button>
+                                </a>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="media-body">
-                    <h2 class="account-heading">{{user.username}}</h2>
-                    <p class="text-secondary">{{user.email}}</p>
-                    <p>{{profiles.bio}}</p>
-                    <hr>
 
-                    <a href="{% url 'profile' %}">
-                        <button class="btn btn-primary">Edit Profile</button>
-                    </a>
 
-                </div>
+                {%endblock%}s
             </div>
-        </div>
-    </div>
-
-
-    {%endblock%}s
-</div>
