@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from pyuploadcare.dj.models import ImageField
-from django.contrib.contenttypes.fields import GenericRelation
-from star_ratings.models import Rating
+# from django.contrib.contenttypes.fields import GenericRelation
+# from star_ratings.models import Rating
 
 # Create your models here.
 class Profiles(models.Model):
@@ -43,11 +43,11 @@ class Review(models.Model):
     usability = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
     content = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
 
-class Foo(models.Model):
-    bar = models.CharField(max_length=100)
-    ratings = GenericRelation(Rating, related_query_name='foos')
+# class Foo(models.Model):
+#     bar = models.CharField(max_length=100)
+#     ratings = GenericRelation(Rating, related_query_name='foos')
 
-Foo.objects.filter(ratings__isnull=False).order_by('ratings__average')
+# Foo.objects.filter(ratings__isnull=False).order_by('ratings__average')
     
 
 
