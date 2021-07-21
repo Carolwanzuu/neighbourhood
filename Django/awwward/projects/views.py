@@ -3,6 +3,8 @@ from .models import *
 from django.shortcuts import redirect, render
 # from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
 
 # Create your views here.
 

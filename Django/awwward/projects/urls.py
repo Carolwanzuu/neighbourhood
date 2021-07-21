@@ -18,6 +18,7 @@ urlpatterns = [
     path('search/', views.search_project, name='search'),
     path('rate/<id>/',views.rate,name = 'rate'),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
+    # path('ajax/newsletter/$', views.newsletter, name='newsletter')
     
 ]
 if settings.DEBUG:

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     'star_ratings',
     'tinymce',
+    'rest_framework',
 ]
 
 UPLOADCARE = {
