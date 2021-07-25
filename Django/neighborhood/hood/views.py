@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
+from .models import NeighborHood
+from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm
+from .forms import NeighborHoodForm, SignupForm
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import login, authenticate
@@ -25,25 +26,25 @@ def signup(request):
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-# def hoods(request):
-#     all_hoods = NeighbourHood.objects.all()
-#     all_hoods = all_hoods[::-1]
-#     params = {
-#         'all_hoods': all_hoods,
-#     }
-#     return render(request, 'all_hoods.html', params)
+def hoods(request):
+    all_hoods = NeighborHood.objects.all()
+    all_hoods = all_hoods[::-1]
+    params = {
+        'all_hoods': all_hoods,
+    }
+    return render(request, 'hoods.html', params)
 
-# def create_hood(request):
-#     if request.method == 'POST':
-#         form = NeighbourHoodForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             hood = form.save(commit=False)
-#             hood.admin = request.user.profile
-#             hood.save()
-#             return redirect('hood')
-#     else:
-#         form = NeighbourHoodForm()
-#     return render(request, 'newhood.html', {'form': form})
+def new_hood(request):
+    if request.method == 'POST':
+        form = NeighborHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.admin = request.user.profile
+            hood.save()
+            return redirect('hood')
+    else:
+        form = NeighborHoodForm()
+    return render(request, 'newhood.html', {'form': form})
 
 
 # def single_hood(request, hood_id):
@@ -91,18 +92,18 @@ def signup(request):
 #     return render(request, 'post.html', {'form': form})
 
 
-# def join_hood(request, id):
-#     neighbourhood = get_object_or_404(NeighbourHood, id=id)
-#     request.user.profile.neighbourhood = neighbourhood
-#     request.user.profile.save()
-#     return redirect('hood')
+def join_hood(request, id):
+    neighbourhood = get_object_or_404(NeighborHood, id=id)
+    request.user.profile.neighbourhood = neighbourhood
+    request.user.profile.save()
+    return redirect('hood')
 
 
-# def leave_hood(request, id):
-#     hood = get_object_or_404(NeighbourHood, id=id)
-#     request.user.profile.neighbourhood = None
-#     request.user.profile.save()
-#     return redirect('hood')
+def leave_hood(request, id):
+    hood = get_object_or_404(NeighborHood, id=id)
+    request.user.profile.neighbourhood = None
+    request.user.profile.save()
+    return redirect('hood')
 
 
 # def profile(request, username):
