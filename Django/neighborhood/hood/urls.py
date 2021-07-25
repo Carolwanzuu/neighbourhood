@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('', include('hood.urls')),
-    path('register/', views.signup, name='signup'),
-    path('account/', include('django.contrib.auth.urls')),
+    path('', views.index, name='index'),
+    # path('register/', views.signup, name='signup'),
+    # path('accounts/', include('django.contrib.auth.urls')),
 ]
