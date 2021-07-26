@@ -2,7 +2,7 @@ from .models import NeighborHood, Business,Profile, Post
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import NeighborHoodForm, SignupForm, BusinessForm, PostForm
+from .forms import NeighborHoodForm, SignupForm, BusinessForm, PostForm, EditProfileForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
