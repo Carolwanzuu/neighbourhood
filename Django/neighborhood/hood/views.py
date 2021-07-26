@@ -107,8 +107,8 @@ def leave_hood(request, id):
     return redirect('hood')
 
 
-# def profile(request, username):
-#     return render(request, 'profile.html')
+def profile(request, username):
+    return render(request, 'profile.html')
 
 
 # def edit_profile(request, username):
