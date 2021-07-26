@@ -2,7 +2,7 @@ from .models import NeighborHood, Business,Profile, Post
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import NeighborHoodForm, SignupForm
+from .forms import NeighborHoodForm, SignupForm, BusinessForm, PostForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
@@ -114,12 +114,12 @@ def profile(request):
 def edit_profile(request, username):
     user = User.objects.get(username=username)
     if request.method == 'POST':
-        form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
             return redirect('profile', user.username)
     else:
-        form = UpdateProfileForm(instance=request.user.profile)
+        form = EditProfileForm(instance=request.user.profile)
     return render(request, 'editprofile.html', {'form': form})
 
 
