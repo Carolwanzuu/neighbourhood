@@ -11,11 +11,11 @@
             {{form|crispy}}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Login</button>
+            <button class="btn btn-outline-info" type="submit"> <a href="{% url 'profile' %}"> Login </a></button>
         </div>
     </form>
     <div class="border-top pt-3">
-        <small class="text-muted">Do you need an Account? <a class="ml-2" href="{% url 'account' %}">Sign Up Now</a></small>
+        <small class="text-muted">Do you need an Account? <a class="ml-2" href="{% url 'signup' %}">Sign Up Now</a></small>
     </div>
 </div>
 {% endblock content %}
