@@ -20,7 +20,6 @@ urlpatterns = [
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('api/profile',views.ProfileList.as_view()),
     path('api/projects',views.ProjectList.as_view()),
-    # path('ajax/newsletter/$', views.newsletter, name='newsletter')
     
 ]
 if settings.DEBUG:

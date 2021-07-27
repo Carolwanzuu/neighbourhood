@@ -1,26 +1,25 @@
-# INSTAGRAM CLONE
+# THE AWWWARDS
 
 ## By Carolyne Wanzuu
 
 ## Description
-A clone of Instagram website
+The application will allow a user to post a project he/she has created and get it reviewed by his/her peers.
  
-.User Story
-*Sign in to the application to start using.
-*Upload my pictures to the application.
-*See my profile with all my pictures.
-*Follow other users and see their pictures on my timeline.
-*Like a picture and leave a comment on it.
+## User Stories
+*View posted projects and their details
 
+*Post a project to be rated/reviewed
+*Rate/ review other users' projects
+*Search for projects 
+*View projects overall score
+*View my profile page
 
 
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Display Home page | **On page load** | Sign in or Sign Up|
-**On signing in** | create a new profile|
-| Display posts created within your profile page | **On page load** | view posts |
-| comment and like/dislike a post| **Signing out** |displays the home page  |
+| Display Home page | **On page load** | Display posted projects|
+**On signing in** | create a new project|update profile| |Rate/ review other users' projects | **On page load** | view projects and reviews | **Signing out** |displays the home page  |
 
 
 
@@ -48,7 +47,7 @@ You need the following to start working on the project on your local computer:
 
 * 
 * Once started, the project can be accessed on your localhost using the address: ``` localhost:8000 ```.
-* Alternatively the application can be accessed by visiting 
+* Alternatively the application can be accessed by visiting https://awwward4.herokuapp.com/
 
 ## Technologies Used
 

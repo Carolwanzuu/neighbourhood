@@ -1,23 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <div class="sidebar-header ">
-            <h3><a href="{% url 'index' %}"class="text-center">Hood Watch</a></h3>
+            <h3><a href="{% url 'index' %}" class="text-center">Hood Watch</a></h3>
             <strong><i class="fas fa-home"></i></strong>
         </div>
-       
-        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse list-unstyled components mr-2 ml-2" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                <li class="nav-item active">
-                     <img class="rounded-circle nav-img"src="{{ user.profile.profile_picture.url }}" alt="">
-                    &nbsp; <span class="text-white">{{user.username|title}}</span>
+                
+                <li class="mb-4">
+                    <a href="{% url 'profile' user.username %}">
+                        <img class="rounded-circle nav-img" src="{{ user.profile.profile_picture.url }}" alt="">
+                        &nbsp; Profile
+                    </a>
+        
                 </li>
                 <br>
-                
+                </li>
+                <li class="mb-4">
+                    <a href="{% url 'edit_profile' user.username %}">
+                        <i class="fas fa-edit"></i>&nbsp;
+                        &nbsp; Edit Profile
+                    </a>
+                </li>
+                <li class="mb-4">
+                    <a href="{% url 'hood' %}">
+                        <i class="fas fa-home"></i>&nbsp;
+                        &nbsp; Hoods
+                    </a>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
