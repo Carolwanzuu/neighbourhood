@@ -48,19 +48,19 @@ def new_hood(request):
     return render(request, 'newhood.html', {'form': form})
 
 
-def single_hood(request):
-    hood = NeighborHood.objects.get.all()
-    business = Business.objects.filter(neighborhood=hood)
+def single_hood(request, hood_id):
+    hood = NeighborHood.objects.get(id=hood_id)
+    business = Business.objects.filter(neighbourhood=hood)
     posts = Post.objects.filter(hood=hood)
     posts = posts[::-1]
     if request.method == 'POST':
         form = BusinessForm(request.POST)
         if form.is_valid():
             b_form = form.save(commit=False)
-            b_form.neighborhood = hood
+            b_form.neighbourhood = hood
             b_form.user = request.user.profile
             b_form.save()
-            return redirect('single-hood')
+            return redirect('single-hood', hood.id)
     else:
         form = BusinessForm()
     params = {
@@ -93,10 +93,10 @@ def create_post(request, hood_id):
     return render(request, 'post.html', {'form': form})
 
 
-def join_hood(request):
-    # neighborhood = get_object_or_404(NeighborHood, id=id)
-    # request.user.profile.neighbourhood = neighborhood
-    # request.user.profile.save()
+def join_hood(request, id):
+    neighborhood = get_object_or_404(NeighborHood, id=id)
+    request.user.profile.neighbourhood = neighborhood
+    request.user.profile.save()
     return render(request, 'single_hood.html')
 
 
@@ -134,7 +134,7 @@ def search_business(request):
             params = {
                 'results': results,
                 'message': message
-            }
+                }
             return render(request, 'results.html', params)
     else:
         message = "You haven't searched for any image category"
