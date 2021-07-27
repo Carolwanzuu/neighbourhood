@@ -48,19 +48,19 @@ def new_hood(request):
     return render(request, 'newhood.html', {'form': form})
 
 
-def single_hood(request, hood_id):
-    hood = NeighborHood.objects.get(id=hood_id)
-    business = Business.objects.filter(neighbourhood=hood)
+def single_hood(request):
+    hood = NeighborHood.objects.get.all()
+    business = Business.objects.filter(neighborhood=hood)
     posts = Post.objects.filter(hood=hood)
     posts = posts[::-1]
     if request.method == 'POST':
         form = BusinessForm(request.POST)
         if form.is_valid():
             b_form = form.save(commit=False)
-            b_form.neighbourhood = hood
+            b_form.neighborhood = hood
             b_form.user = request.user.profile
             b_form.save()
-            return redirect('single-hood', hood.id)
+            return redirect('single-hood')
     else:
         form = BusinessForm()
     params = {
@@ -93,21 +93,22 @@ def create_post(request, hood_id):
     return render(request, 'post.html', {'form': form})
 
 
-def join_hood(request, id):
-    neighbourhood = get_object_or_404(NeighborHood, id=id)
-    request.user.profile.neighbourhood = neighbourhood
-    request.user.profile.save()
-    return redirect('hood')
+def join_hood(request):
+    # neighborhood = get_object_or_404(NeighborHood, id=id)
+    # request.user.profile.neighbourhood = neighborhood
+    # request.user.profile.save()
+    return render(request, 'single_hood.html')
 
 
 def leave_hood(request, id):
     hood = get_object_or_404(NeighborHood, id=id)
-    request.user.profile.neighbourhood = None
+    request.user.profile.neighborhood = None
     request.user.profile.save()
     return redirect('hood')
 
 
-def profile(request):
+def profile(request,username):
+    
     return render(request, 'profile.html')
 
 
@@ -126,14 +127,15 @@ def edit_profile(request, username):
 def search_business(request):
     if request.method == 'GET':
         name = request.GET.get("title")
-        results = Business.objects.filter(name__icontains=name).all()
-        print(results)
-        message = f'name'
-        params = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', params)
+        if name != '' and name is not None:
+            results = Business.objects.filter(name__icontains=name).all()
+            print(results)
+            message = f'name'
+            params = {
+                'results': results,
+                'message': message
+            }
+            return render(request, 'results.html', params)
     else:
         message = "You haven't searched for any image category"
     return render(request, "results.html")

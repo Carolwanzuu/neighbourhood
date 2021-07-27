@@ -49,16 +49,16 @@
                 <h5 class="D-block mx-auto tt">Businesses</h5>
                 <hr>
                 <div class="row">
-                    {% for bus in business %}
+                    {% for busn in business %}
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="card-title">{{bus.name}}
+                                <h5 class="card-title">{{busn.name}}
                                 </h5>
-                                <p class="card-text">{{bus.email}}</p>
-                                <p class="card-text">{{bus.description}}</p>
+                                <p class="card-text">{{busn.email}}</p>
+                                <p class="card-text">{{busn.description}}</p>
                                 <p class="card-text">Owner: <small class="text-muted">
-                                    {{ bus.user.user.username|title }}</small></p>
+                                    {{ busn.user.user.username|title }}</small></p>
                             </div>
                         </div>
                     </div>
