@@ -19,10 +19,10 @@
                                 | <strong>{{ hood.business.count }}</strong> Businesses | <strong>
                                 {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
                             </h6>
-                            <p class="card-text">{{hood.description}}</p>
-                            <p class="card-text"><span class="text-info">Police Tell</span>
+                            <p class="card-text">{{neighborhood.description}}</p>
+                            <p class="card-text"><span class="text-info">Police Contact</span>
                                 &nbsp;<strong>{{hood.police_number}}</strong> |
-                                <span class="text-info">Hospital Tell</span> <strong>{{hood.health_tell}}</strong></p>
+                                <span class="text-info">Hospital Contact</span> <strong>{{hood.health_contact}}</strong></p>
                             <p class="card-text">Administrator: <small class="text-muted">
                                 {{ hood.admin.user.username }}</small></p>
                         </div>

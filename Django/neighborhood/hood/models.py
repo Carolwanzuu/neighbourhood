@@ -11,6 +11,10 @@ class NeighborHood(models.Model):
     health_contact = models.IntegerField(null=True, blank=True)
     police_number = models.IntegerField(null=True, blank=True)
 
+    
+
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=80, blank=True)

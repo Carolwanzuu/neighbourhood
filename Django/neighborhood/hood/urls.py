@@ -19,6 +19,7 @@ urlpatterns = [
     path('single_hood/<hood_id>', views.single_hood, name='single_hood'),
     path('<hood_id>/members', views.hood_members, name='members'),
     path('search/', views.search_business, name='search'),
+    path('<hood_id>/post/', views.create_post, name='post'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

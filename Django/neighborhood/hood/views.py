@@ -50,7 +50,7 @@ def new_hood(request):
 
 def single_hood(request, hood_id):
     hood = NeighborHood.objects.get(id=hood_id)
-    business = Business.objects.filter(neighbourhood=hood)
+    business = Business.objects.all()
     posts = Post.objects.filter(hood=hood)
     posts = posts[::-1]
     if request.method == 'POST':
@@ -74,7 +74,7 @@ def single_hood(request, hood_id):
 
 def hood_members(request, hood_id):
     hood = NeighborHood.objects.get(id=hood_id)
-    members = Profile.objects.filter(neighbourhood=hood)
+    members = Profile.objects.filter(neighborhood=hood)
     return render(request, 'members.html', {'members': members})
 
 
@@ -87,7 +87,7 @@ def create_post(request, hood_id):
             post.hood = hood
             post.user = request.user.profile
             post.save()
-            return redirect('single-hood', hood.id)
+            return redirect('single_hood', hood.id)
     else:
         form = PostForm()
     return render(request, 'post.html', {'form': form})
